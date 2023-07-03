@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [14.x, 16.x, 18.x]
 
     steps:
       - name: Checkout
@@ -27,11 +27,11 @@ jobs:
 
       - name: Install
         # 安装依赖
-        run: npm install
+        run: yarn
 
       - name: Build
         # 打包
-        run: npm run build
+        run: yarn build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4

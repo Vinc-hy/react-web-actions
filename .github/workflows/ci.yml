@@ -40,6 +40,6 @@ jobs:
           # 部署打包目录
           folder: lib
           # 密钥名
-          token: ${{ secrets.ACTIONS_DEMO }}
+          token: ${{ secrets.ACITONS_DEMO }}
           # 分支
           branch: gh-pages

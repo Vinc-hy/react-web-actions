@@ -1,7 +1,7 @@
 // router index.js
-import LayOuts from "@/layout/index";
-import React, { ReactNode, lazy } from "react";
-import { RouteObject } from "react-router-dom";
+// import LayOuts from "@/layout/index";
+import React from "react";
+// import { RouteObject } from "react-router-dom";
 import Home from "@/pages/home";
 
 const withLoadingComponent = (comp: JSX.Element) => (

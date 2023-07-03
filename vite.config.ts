@@ -10,4 +10,15 @@ export default defineConfig({
       "@": "/src",
     },
   },
+  build: {
+    outDir: "lib",
+    minify: "esbuild",
+    rollupOptions: {
+      output: {
+        chunkFileNames: "assets/js/[name]-[hash].js",
+        entryFileNames: "assets/js/[name]-[hash].js",
+        assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
+      },
+    },
+  },
 });

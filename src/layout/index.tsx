@@ -1,4 +1,4 @@
-import React, { useState, memo, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 // import {
 //   DesktopOutlined,
 //   FileOutlined,
@@ -6,37 +6,28 @@ import React, { useState, memo, useEffect } from "react";
 //   TeamOutlined,
 //   UserOutlined,
 // } from "@ant-design/icons";
-import type { MenuProps } from "antd";
-import { Breadcrumb, Layout, Menu, theme, Button } from "antd";
+// import type { MenuProps } from "antd";
+import { Layout, Menu, theme, Button } from "antd";
 import routers from "@/router/index";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 const { Header, Content, Sider } = Layout;
-import {
-  useNavigate,
-  useRoutes,
-  Outlet,
-  Routes,
-  Route,
-  useLocation,
-  matchRoutes,
-} from "react-router-dom";
-import Home from "@/pages/home";
+import { useNavigate, Routes, Route, useLocation } from "react-router-dom";
 
-type MenuItem = Required<MenuProps>["items"][number];
+// type MenuItem = Required<MenuProps>["items"][number];
 
-function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[]
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-  } as MenuItem;
-}
+// function getItem(
+//   label: React.ReactNode,
+//   key: React.Key,
+//   icon?: React.ReactNode,
+//   children?: MenuItem[]
+// ): MenuItem {
+//   return {
+//     key,
+//     icon,
+//     children,
+//     label,
+//   } as MenuItem;
+// }
 
 const RouterView = () => {
   //   return useRoutes(routers);
@@ -46,7 +37,7 @@ const RouterView = () => {
   return (
     <>
       <Routes>
-        {flattenedMenuItems.map((item: any, index: number) => {
+        {flattenedMenuItems.map((item: any) => {
           return (
             <React.Fragment key={item.key}>
               <Route

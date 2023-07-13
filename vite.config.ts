@@ -17,6 +17,7 @@ export default defineConfig({
     preprocessorOptions: {
       //scss文件
       scss: {
+        additionalData: '@import "./src/assets/styles/common.scss";',
         // additionalData: `@import "${path.resolve(
         //   __dirname,
         //   "src/styles/variable.scss"
@@ -26,6 +27,7 @@ export default defineConfig({
       },
     },
   },
+  base: "./", //设置项目的根目录
   build: {
     outDir: "lib",
     minify: "esbuild",

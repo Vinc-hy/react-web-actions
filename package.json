@@ -37,7 +37,7 @@
     "typescript": "^5.0.2",
     "vite": "^4.3.9"
   },
-  "homepage": "https://13078054431.github.io/react-web-actions",
+  "homepage": "https://vinc-hy.github.io/react-web-actions",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

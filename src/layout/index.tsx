@@ -3,14 +3,19 @@ import { Layout, Menu, theme, Button } from "antd";
 import routers from "@/router/index";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 const { Header, Content, Sider } = Layout;
-import { useNavigate, Routes, Route, useLocation } from "react-router-dom";
+import {
+  useNavigate,
+  Routes,
+  Route,
+  useLocation,
+  Navigate,
+} from "react-router-dom";
 import Loading from "@/components/loading";
 
 const RouterView = () => {
   //   return useRoutes(routers);
 
   const flattenedMenuItems = flattenMenuItems(routers);
-  console.log(flattenedMenuItems);
   return (
     <Suspense fallback={<Loading />}>
       <Routes>
@@ -22,6 +27,7 @@ const RouterView = () => {
                 path={item.key}
                 element={item.element}
               ></Route>
+              <Route path="/" element={<Navigate to={"/"} replace />}></Route>
             </React.Fragment>
           );
         })}
@@ -53,6 +59,7 @@ const LayOuts: React.FC = () => {
 
   useEffect(() => {
     setCurrentRouter([loaclRouter.pathname]);
+    console.log(curretRouter, "curretRouter");
   }, [loaclRouter]);
 
   const {
@@ -79,7 +86,6 @@ const LayOuts: React.FC = () => {
           mode="inline"
           items={items as any}
           onClick={({ key }) => {
-            console.log(key);
             navigateTo(key);
           }}
         ></Menu>

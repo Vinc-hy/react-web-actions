@@ -1,33 +1,10 @@
-import React, { useState, useEffect } from "react";
-// import {
-//   DesktopOutlined,
-//   FileOutlined,
-//   PieChartOutlined,
-//   TeamOutlined,
-//   UserOutlined,
-// } from "@ant-design/icons";
-// import type { MenuProps } from "antd";
+import React, { useState, useEffect, Suspense } from "react";
 import { Layout, Menu, theme, Button } from "antd";
 import routers from "@/router/index";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 const { Header, Content, Sider } = Layout;
 import { useNavigate, Routes, Route, useLocation } from "react-router-dom";
-
-// type MenuItem = Required<MenuProps>["items"][number];
-
-// function getItem(
-//   label: React.ReactNode,
-//   key: React.Key,
-//   icon?: React.ReactNode,
-//   children?: MenuItem[]
-// ): MenuItem {
-//   return {
-//     key,
-//     icon,
-//     children,
-//     label,
-//   } as MenuItem;
-// }
+import Loading from "@/components/loading";
 
 const RouterView = () => {
   //   return useRoutes(routers);
@@ -35,7 +12,7 @@ const RouterView = () => {
   const flattenedMenuItems = flattenMenuItems(routers);
   console.log(flattenedMenuItems);
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <Routes>
         {flattenedMenuItems.map((item: any) => {
           return (
@@ -49,7 +26,7 @@ const RouterView = () => {
           );
         })}
       </Routes>
-    </>
+    </Suspense>
   );
 };
 
@@ -83,7 +60,7 @@ const LayOuts: React.FC = () => {
   } = theme.useToken();
 
   const items = routers.filter((item: any) => {
-    return item.key !== "/404";
+    return item.key !== "*";
   });
 
   const navigateTo = useNavigate();

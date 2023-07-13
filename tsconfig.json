@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
     "target": "ES2020",
     "module": "commonjs",
     "removeComments": false,
@@ -13,7 +14,6 @@
     "noUnusedParameters": true,
     "strictNullChecks": true,
     "sourceMap": true,
-    "baseUrl": ".",
     "rootDir": ".",
     "jsx": "react-jsx",
     "allowJs": true,
@@ -22,6 +22,7 @@
       "node_modules/@types",
       "global.d.ts"
     ],
+    "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"],
     }

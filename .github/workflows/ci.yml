@@ -3,7 +3,7 @@ name: Vite React Deploy
 on:
   push:
     # master 分支有 push 时触发
-    branches: [master]
+    branches: [master, dev, pre]
 
 jobs:
   deploy:

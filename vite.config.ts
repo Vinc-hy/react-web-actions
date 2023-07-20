@@ -6,6 +6,26 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), reactRefresh()],
+  server: {
+    proxy: {
+      "/upyun": {
+        target: "http://v0.api.upyun.com",
+        changeOrigin: true,
+        rewrite: (url_path) => url_path.replace(/^\/upyun/, "/"),
+      },
+      "/testproviewCavas": {
+        target: "https://test.cdn.zzfzyc.com",
+        changeOrigin: true,
+        rewrite: (url_path) => url_path.replace(/^\/testproviewCavas/, "/"),
+      },
+      "/productCavas": {
+        target: `https://cdn.zzfzyc.com`,
+        changeOrigin: true,
+        rewrite: (url_path) => url_path.replace(/^\/productCavas/, "/"),
+      },
+    },
+    hmr: true,
+  },
   resolve: {
     extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"],
     alias: {
@@ -17,12 +37,7 @@ export default defineConfig({
     preprocessorOptions: {
       //scss文件
       scss: {
-        additionalData: '@import "./src/assets/styles/common.scss";',
-        // additionalData: `@import "${path.resolve(
-        //   __dirname,
-        //   "src/styles/variable.scss"
-        // )}";`,
-        // 支持内联 JavaScript
+        additionalData: `@import "@/assets/common.scss";`,
         javascriptEnabled: true,
       },
     },

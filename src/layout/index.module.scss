@@ -1,0 +1,14 @@
+.flexBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 30px;
+  .rightTop {
+    .icon {
+      font-size: 25px;
+    }
+    .name {
+      margin-left: 10px;
+    }
+  }
+}

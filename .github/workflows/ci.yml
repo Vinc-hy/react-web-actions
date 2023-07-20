@@ -4,7 +4,9 @@ on:
   push:
     # master 分支有 push 时触发
     branches: [master, dev, pre]
-
+    pull_request:
+      branches:
+        - dev
 jobs:
   deploy:
     # 指定虚拟机环境

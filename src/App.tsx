@@ -1,16 +1,13 @@
-import { memo } from "react";
 import "./App.css";
-// import routers from "@/router/index";
-// import { useRoutes } from "react-router-dom";
-import LayOuts from "./layout";
+import Router from "@/router/index";
+import { BrowserRouter } from "react-router-dom";
 
-const App = memo(() => {
-  // return useRoutes(routers);
+const App = () => {
   return (
-    <>
-      <LayOuts></LayOuts>
-    </>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   );
-});
+};
 
 export default App;

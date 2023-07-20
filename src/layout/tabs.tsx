@@ -1,6 +1,6 @@
 import { Tabs } from "antd";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate, useRoutes } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { routes as routers } from "@/router/index";
 
 const Tab = () => {

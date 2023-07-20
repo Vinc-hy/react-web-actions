@@ -1,10 +1,10 @@
-import { useLocation, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 /**
  * @description 路由守卫组件
  * */
 const AuthRouter = (props: { children: JSX.Element }) => {
-  const { pathname } = useLocation();
+  // const { pathname } = useLocation();
   // const route = false; //searchRoute(pathname, rootRouter)
 
   // * 判断是否有Token

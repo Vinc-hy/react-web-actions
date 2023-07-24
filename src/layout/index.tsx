@@ -7,8 +7,12 @@ import { useNavigate, useLocation, Outlet } from "react-router-dom";
 import Tab from "./tabs";
 import { UserOutlined } from "@ant-design/icons";
 import styles from "./index.module.scss";
+import { saveCurrentValue } from "@/store/modules/menuCurrent";
+import { useDispatch } from "react-redux";
 
 const LayOut: React.FC = () => {
+  const dispatch = useDispatch();
+
   const { pathname } = useLocation();
 
   const [collapsed, setCollapsed] = useState(false);
@@ -16,6 +20,8 @@ const LayOut: React.FC = () => {
   const [curretRouter, setCurrentRouter] = useState([""]);
 
   const [openKeys, setOpenKeys] = useState<string[]>([]);
+
+  const [spinning, setspinning] = useState<boolean>(true);
 
   // 刷新页面菜单保持高亮
   useEffect(() => {
@@ -26,6 +32,20 @@ const LayOut: React.FC = () => {
   const onOpenChange = (openKeys: string[]) => {
     setOpenKeys(openKeys);
   };
+
+  useEffect(() => {
+    const openMenu: string[] = JSON.parse(
+      localStorage.getItem("currentMenu") as any
+    );
+    setOpenKeys(openMenu);
+    setspinning(false);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      setspinning(false);
+    };
+  }, []);
 
   const {
     token: { colorBgContainer },
@@ -60,7 +80,7 @@ const LayOut: React.FC = () => {
   const navigateTo = useNavigate();
 
   return (
-    <Spin spinning={false} tip="正在加载中...">
+    <Spin spinning={spinning} tip="正在加载中...">
       <Layout style={{ minHeight: "100vh" }}>
         <Sider
           collapsible
@@ -69,6 +89,7 @@ const LayOut: React.FC = () => {
         >
           <div className="demo-logo-vertical" />
           <Menu
+            key={items.length}
             theme="dark"
             openKeys={openKeys}
             onOpenChange={onOpenChange}
@@ -76,7 +97,8 @@ const LayOut: React.FC = () => {
             triggerSubMenuAction="click"
             mode="inline"
             items={items as any}
-            onClick={({ key }) => {
+            onClick={({ key, keyPath }) => {
+              dispatch(saveCurrentValue(keyPath));
               navigateTo(key);
             }}
           ></Menu>

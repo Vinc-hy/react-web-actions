@@ -26,6 +26,7 @@ export default defineConfig({
     },
     hmr: true,
   },
+
   resolve: {
     extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"],
     alias: {

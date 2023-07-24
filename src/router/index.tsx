@@ -87,7 +87,6 @@ export const routes: any[] = [
       },
     ],
   },
-
   {
     key: "*",
     label: "404",

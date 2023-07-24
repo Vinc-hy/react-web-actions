@@ -35,7 +35,7 @@ const Tab = () => {
   };
 
   const [itemTabs, setitemTabs] = useState([
-    { key: "/home", label: "首页", state: {} },
+    { key: "/home", label: "首页", state: {}, closeIcon: true },
   ]);
 
   const [activeKey, setactiveKey] = useState("");

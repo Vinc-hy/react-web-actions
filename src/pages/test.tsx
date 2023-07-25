@@ -1,6 +1,6 @@
-import { Pagination, Space, Table, Tag } from "antd";
+import { Space, Table } from "antd";
 import { getList } from "@/api/login";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const Test = () => {
   const columns = [

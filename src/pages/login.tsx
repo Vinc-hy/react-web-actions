@@ -16,6 +16,7 @@ const Test = () => {
       localStorage.setItem("token", res?.data.token || "2222");
     } catch (err) {
       console.log("此接口无效了");
+      localStorage.setItem("token", "2222");
     }
     navgatito("/home");
   };
